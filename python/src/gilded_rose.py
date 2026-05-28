@@ -1,5 +1,5 @@
 from item_names import ItemName
-from helpers import is_legendary, increase, decrease, decrement_sell_in
+from helpers import is_legendary, increase_quality, decrease_quality, decrement_sell_in
 
 
 class GildedRose(object):
@@ -11,50 +11,34 @@ class GildedRose(object):
         for item in self.items:
             if is_legendary(item):
                 continue
-            if item.name == ItemName.AGED_BRIE:
-                self._update_brie(item)
-            elif item.name == ItemName.BACKSTAGE:
-                self._update_backstage(item)
-            elif self._is_conjured(item):
-                self._update_conjured(item)
-            else:
-                self._update_normal(item)
-
+           
+            self.update_quality_value(item)
             decrement_sell_in(item)
+            self.update_after_expiry(item)
 
-    def _update_normal(self, item):
-        decrease(item)
 
-        if item.sell_in <= 0:
-            decrease(item)
+    def update_quality_value(self, item):
+        if item.name == ItemName.AGED_BRIE:
+            increase_quality(item)
+        elif item.name == ItemName.BACKSTAGE:
+            increase_quality(item)
+            if item.sell_in < 11:
+                increase_quality(item)
+            if item.sell_in < 6:
+                increase_quality(item)
+        else:
+            decrease_quality(item)
 
-    def _is_conjured(self, item):
-        return item.name.startswith(ItemName.CONJURED_PREFIX)
 
-    def _update_conjured(self, item):
-        decrease(item, 2)
-
-        if item.sell_in <= 0:
-            decrease(item, 2)
-
-    def _update_brie(self, item):
-        increase(item)
-
-        if item.sell_in <= 0:
-            increase(item)
-
-    def _update_backstage(self, item):
-        increase(item)
-
-        if item.sell_in <= 10:
-            increase(item)
-
-        if item.sell_in <= 5:
-            increase(item)
-
-        if item.sell_in <= 0:
+    def update_after_expiry(self, item):
+        if item.sell_in >= 0:
+            return
+        if item.name == ItemName.AGED_BRIE:
+            increase_quality(item)
+        elif item.name == ItemName.BACKSTAGE:
             item.quality = 0
-
+        else:
+            decrease_quality(item)
 
 class Item:
     def __init__(self, name, sell_in, quality):
