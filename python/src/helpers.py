@@ -1,10 +1,3 @@
-from item_names import ItemName
-
-
-def is_legendary(item):
-    return item.name == ItemName.SULFURAS
-
-
 def increase_quality(item, amount=1):
     item.quality = min(50, item.quality + amount)
 
