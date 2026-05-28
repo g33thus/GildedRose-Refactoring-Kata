@@ -6,7 +6,9 @@
       "Bash(rtk git *)",
       "Bash(git credential *)",
       "Bash(cmdkey /list)",
-      "Bash(git config *)"
+      "Bash(git config *)",
+      "Bash(rtk ls *)",
+      "Bash(python tests/run_all_tests.py)"
     ]
   }
 }

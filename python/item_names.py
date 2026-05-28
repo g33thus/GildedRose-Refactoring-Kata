@@ -6,3 +6,4 @@ class ItemName(str, Enum):
     BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert"
     SULFURAS = "Sulfuras, Hand of Ragnaros"
     CONJURED_PREFIX = "Conjured"
+    CONJURED_CAKE = "Conjured Mana Cake"
