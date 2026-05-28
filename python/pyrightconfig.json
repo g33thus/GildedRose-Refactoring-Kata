@@ -1,0 +1,4 @@
+{
+  "extraPaths": ["src", "tests"],
+  "include": ["src", "tests"]
+}

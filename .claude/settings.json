@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk pytest *)",
+      "Bash(git remote *)",
+      "Bash(rtk git *)",
+      "Bash(git credential *)",
+      "Bash(cmdkey /list)",
+      "Bash(git config *)",
+      "Bash(rtk ls *)",
+      "Bash(python tests/run_all_tests.py)",
+      "Bash(git mv *)",
+      "Bash(rtk read *)",
+      "Bash(rtk pip *)",
+      "Bash(rtk grep *)",
+      "Bash(rtk diff *)",
+      "Bash(python -)",
+      "Bash(rtk find *)",
+      "Bash(git rm *)",
+      "Bash(cd python/tests/approval/approved_files)",
+      "Bash(mv -f test_gilded_rose_approvals.test_gilded_rose_approvals.received.txt test_gilded_rose_approvals.test_gilded_rose_approvals.approved.txt)"
+    ]
+  }
+}
