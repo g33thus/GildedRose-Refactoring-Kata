@@ -1,7 +1,6 @@
 from item_names import ItemName
 from helpers import is_legendary, increase_quality, decrease_quality, decrement_sell_in
 
-
 class GildedRose(object):
 
     def __init__(self, items):
@@ -17,28 +16,45 @@ class GildedRose(object):
             self.update_after_expiry(item)
 
 
+    
     def update_quality_value(self, item):
-        if item.name == ItemName.AGED_BRIE:
-            increase_quality(item)
-        elif item.name == ItemName.BACKSTAGE:
-            increase_quality(item)
-            if item.sell_in < 11:
+        match item.name:
+            case ItemName.AGED_BRIE:
                 increase_quality(item)
-            if item.sell_in < 6:
+
+            case ItemName.BACKSTAGE:
                 increase_quality(item)
-        else:
-            decrease_quality(item)
+                if item.sell_in < 11:
+                    increase_quality(item)
+                if item.sell_in < 6:
+                    increase_quality(item)
+
+            case n if n.startswith(ItemName.CONJURED_PREFIX):
+                decrease_quality(item, 2)
+
+            case _:
+                decrease_quality(item)
+
 
 
     def update_after_expiry(self, item):
         if item.sell_in >= 0:
             return
-        if item.name == ItemName.AGED_BRIE:
-            increase_quality(item)
-        elif item.name == ItemName.BACKSTAGE:
-            item.quality = 0
-        else:
-            decrease_quality(item)
+
+        match item.name:
+            case ItemName.AGED_BRIE:
+                increase_quality(item)
+
+            case ItemName.BACKSTAGE:
+                item.quality = 0
+
+            case n if n.startswith(ItemName.CONJURED_PREFIX):
+                decrease_quality(item, 2)
+
+            case _:
+                decrease_quality(item)
+
+
 
 class Item:
     def __init__(self, name, sell_in, quality):
