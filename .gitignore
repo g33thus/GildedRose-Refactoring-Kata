@@ -12,5 +12,6 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .approval_tests_temp/
+reports/
 **/DS_Store/*
 **/.DS_Store/*

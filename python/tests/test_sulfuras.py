@@ -1,6 +1,6 @@
 import unittest
 
-from helpers import make, tick
+from support import make, tick
 from item_names import ItemName
 
 

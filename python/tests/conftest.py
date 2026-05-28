@@ -3,10 +3,10 @@ import sys
 
 # Put python/src on sys.path so tests can `from gilded_rose import ...`,
 # and python/ root so `from texttest_fixture import ...` still works.
-HERE = os.path.dirname(__file__)
+HERE = os.path.abspath(os.path.dirname(__file__))
 PYTHON_ROOT = os.path.abspath(os.path.join(HERE, ".."))
 SRC = os.path.join(PYTHON_ROOT, "src")
-for p in (SRC, PYTHON_ROOT):
+for p in (SRC, PYTHON_ROOT, HERE):
     if p not in sys.path:
         sys.path.insert(0, p)
 

@@ -9,7 +9,12 @@
       "Bash(git config *)",
       "Bash(rtk ls *)",
       "Bash(python tests/run_all_tests.py)",
-      "Bash(git mv *)"
+      "Bash(git mv *)",
+      "Bash(rtk read *)",
+      "Bash(rtk pip *)",
+      "Bash(rtk grep *)",
+      "Bash(rtk diff *)",
+      "Bash(python -)"
     ]
   }
 }

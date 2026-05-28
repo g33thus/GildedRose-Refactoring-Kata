@@ -1,7 +1,7 @@
 import unittest
 
 from gilded_rose import Item, GildedRose
-from helpers import tick
+from support import tick
 from item_names import ItemName
 
 
