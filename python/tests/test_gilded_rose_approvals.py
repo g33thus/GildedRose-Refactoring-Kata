@@ -2,6 +2,7 @@ import io
 import sys
 
 from approvaltests import verify
+import approvaltests.reporters as _reporters
 from texttest_fixture import main
 
 def test_gilded_rose_approvals():
@@ -15,7 +16,8 @@ def test_gilded_rose_approvals():
     finally:
         sys.stdout = orig_sysout
 
-    verify(answer)
+    # Use a concrete reporter so tests run without external reporter configuration.
+    verify(answer, reporter=_reporters.PythonNativeReporter())
 
 if __name__ == "__main__":
     test_gilded_rose_approvals()
