@@ -14,7 +14,9 @@
       "Bash(rtk pip *)",
       "Bash(rtk grep *)",
       "Bash(rtk diff *)",
-      "Bash(python -)"
+      "Bash(python -)",
+      "Bash(rtk find *)",
+      "Bash(git rm *)"
     ]
   }
 }

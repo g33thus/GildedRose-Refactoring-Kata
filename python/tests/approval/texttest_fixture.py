@@ -4,9 +4,9 @@ from __future__ import print_function
 import os
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
-from gilded_rose import *
+from gilded_rose import GildedRose, Item
 
 
 def main():
@@ -23,7 +23,6 @@ def main():
         Item(name="Conjured Mana Cake", sell_in=3, quality=6),  # <-- :O
     ]
     days = 2
-    import sys
     if len(sys.argv) > 1:
         days = int(sys.argv[1]) + 1
     for day in range(days):
