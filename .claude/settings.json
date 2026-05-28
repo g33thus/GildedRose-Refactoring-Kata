@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk pytest *)",
+      "Bash(git remote *)",
+      "Bash(rtk git *)",
+      "Bash(git credential *)",
+      "Bash(cmdkey /list)",
+      "Bash(git config *)"
+    ]
+  }
+}
