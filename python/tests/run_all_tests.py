@@ -4,8 +4,10 @@ import unittest
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
-if ROOT not in sys.path:
-    sys.path.insert(0, ROOT)
+SRC = os.path.join(ROOT, "src")
+for p in (SRC, ROOT, HERE):
+    if p not in sys.path:
+        sys.path.insert(0, p)
 
 try:
     import approvaltests.reporters as _reporters

@@ -1,6 +1,7 @@
 import unittest
 
 from gilded_rose import Item, GildedRose
+from helpers import tick
 from item_names import ItemName
 
 
@@ -33,14 +34,13 @@ class TestCrossCutting(unittest.TestCase):
     def test_same_item_updated_twice(self):
         # two consecutive ticks on a normal item
         items = [Item("foo", 1, 10)]
-        rose = GildedRose(items)
-        rose.update_quality()
-        self.assertEqual(0, items[0].sell_in)
-        self.assertEqual(9, items[0].quality)
-        rose.update_quality()
+        item = tick(items)
+        self.assertEqual(0, item.sell_in)
+        self.assertEqual(9, item.quality)
+        item = tick(items)
         # day two: now past sell date, degrades by 2
-        self.assertEqual(-1, items[0].sell_in)
-        self.assertEqual(7, items[0].quality)
+        self.assertEqual(-1, item.sell_in)
+        self.assertEqual(7, item.quality)
 
 
 if __name__ == '__main__':
