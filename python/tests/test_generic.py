@@ -1,6 +1,7 @@
 import unittest
 
-from gilded_rose import Item, GildedRose
+from item import Item
+from gilded_rose import GildedRose
 from support import make, tick
 from item_names import ItemName
 

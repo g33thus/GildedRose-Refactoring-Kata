@@ -1,4 +1,5 @@
-from gilded_rose import Item, GildedRose
+from item import Item
+from gilded_rose import GildedRose
 
 
 def make(name, sell_in, quality):

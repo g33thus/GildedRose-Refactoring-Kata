@@ -16,7 +16,9 @@
       "Bash(rtk diff *)",
       "Bash(python -)",
       "Bash(rtk find *)",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(cd python/tests/approval/approved_files)",
+      "Bash(mv -f test_gilded_rose_approvals.test_gilded_rose_approvals.received.txt test_gilded_rose_approvals.test_gilded_rose_approvals.approved.txt)"
     ]
   }
 }

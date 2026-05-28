@@ -6,7 +6,8 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
-from gilded_rose import GildedRose, Item
+from gilded_rose import GildedRose
+from item import Item
 
 
 def main():
